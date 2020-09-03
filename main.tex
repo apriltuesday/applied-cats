@@ -1,0 +1,44 @@
+\documentclass[12pt]{report}
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx, amssymb,epstopdf,stmaryrd,fancyhdr,fullpage,multicol,mathrsfs,algorithm, algorithmic,natbib,url,oz}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\usepackage[left=0.9in,top=0.9in,right=0.9in,bottom=0.8in]{geometry}
+%\geometry{letterpaper}  
+
+%%%%%DEFINITIONS%%%%%
+
+% for the problems
+\newcommand{\exercise}[1]{\subsubsection*{Exercise {#1}}}
+\newcommand{\solution}{\subsubsection*{Solution}}
+
+%common sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\B}{\mathbb{B}}
+
+%other math symbols
+\newcommand{\Ker}{\mbox{ Ker }}
+\newcommand{\Mod}{\mbox{ mod }}
+\newcommand{\Var}{\mbox{ Var}}
+\newcommand{\D}{\mbox{d}}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern3mu{#1#2}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\title{Applied Category Theory Problems}
+\author{April Shen \& Alex Root}
+
+\begin{document}
+\maketitle
+
+\include{ch1}
+
+\end{document}
