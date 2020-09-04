@@ -198,3 +198,61 @@ Call $\phi_Q$ the function that takes upper sets in $Q$ to monotone maps as defi
 
 Let $x\in P$.  If $x\in f^{-1}(U)$, then we know $\phi_P(f^{-1}(U))(x)=\texttt{true}$ by definition.  But we also know $f(x)\in U$ and hence $\phi_Q(U)(f(x)) = \texttt{true}$.  Conversely if $x\not\in f^{-1}(U)$, we will have both $\phi_P(f^{-1}(U))(x)=\texttt{false}$, as well as $f(x)\not\in U$ and $\phi_Q(U)(f(x)) = \texttt{false}$.  This shows that these maps are equal.
 
+\exercise{1.80}
+Why is 0 a greatest lower bound for $\left\{\frac{1}{n+1}\ |\ n\in\N\right\}\subseteq\R$?
+
+\solution
+Assume that $\varepsilon > 0$ is a lower bound. Let $n=\lceil 1 / \varepsilon \rceil$.  Then
+\[
+	\frac{1}{n+1}\leq \frac{1}{1 / \varepsilon +1} \leq \frac{1}{1/\varepsilon}=\varepsilon.
+\]
+Hence no such $\varepsilon$ is a lower bound.
+
+\exercise{1.85}
+Let $(P, \leq)$ be a preorder and $p\in P$, consider the set $A=\{p\}$.
+\begin{enumerate}
+	\item Show that $\bigwedge A \cong p$.
+	\item Show that if $P$ is a partial order, then $\bigwedge A = p$.
+	\item Are the analogous facts true when $\bigwedge$ is replaced by $\bigvee$?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+	\item Clearly $p\leq p$, so by definition $\bigwedge A \leq p$ (as a lower bound) and $\bigwedge A\geq p$ (as a greatest lower bound).
+	\item If the previous is true in a partial order, then we have $\bigwedge A = p$.
+	\item The analogous facts are true with $\bigvee$.
+\end{enumerate}
+
+\exercise{1.90}
+In the $n|m$ ordering on $\N$, what are the meet and the join?
+
+\solution
+The meet is the greatest common divisor and the join is the least common multiple.
+
+\exercise{1.94}
+Prove that for any monotone map $f:P\to Q$, if $a, b\in P$ have a join and $f(a), f(b)\in Q$ have a join, then $f(a)\lor f(b)\leq f(a\lor b)$.
+
+\solution
+We know $a,b\leq a\lor b$, so since $f$ is monotone we have $f(a), f(b)\leq f(a\lor b)$.  Hence $f(a\lor b)$ is an upper bound for $\{f(a), f(b)\}$, so by definition of the join we must have $f(a)\lor f(b)\leq f(a\lor b)$.
+
+\exercise{1.98}
+Find a right adjoint for the monotone map $(3\times -):\Z\to\R$, and show it is correct.
+
+\solution
+Let $g(y) = \lfloor y/3 \rfloor$.  Then we have $3x \leq y \iff x\leq y/3 \iff x\leq \lfloor y/3\rfloor$, hence $g$ is a right adjoint for $3x$.
+
+\exercise{1.99}
+See book.
+
+\solution
+% TODO
+
+\exercise{1.101}
+\begin{enumerate}
+	\item Does $\lceil -/3\rceil$ have a left adjoint $L:\Z\to\R$?
+	\item If not, why?  If so, does its left adjoint have a left adjoint?
+\end{enumerate}
+
+\solution
+% TODO
+
