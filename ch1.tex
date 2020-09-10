@@ -163,7 +163,7 @@ We need to show that for any $x,y\in P$ where $x\leq_P y$, we have $f(x)\leq_Q f
 Choose two sets $X$ and $Y$ with at least three elements each and choose a surjective, non-identity function $f:X\to Y$.  Write down two different partitions $P$ and $Q$ of $Y$, and find $f^*(P)$ and $f^*(Q)$.
 
 \solution
-%\includegraphics[width=0.5\linewidth]{} %TODO
+\includegraphics[width=0.5\linewidth]{images/1-69.jpg}
 
 \exercise{1.71}
 Prove Proposition 1.70:
@@ -245,7 +245,10 @@ Let $g(y) = \lfloor y/3 \rfloor$.  Then we have $3x \leq y \iff x\leq y/3 \iff x
 See book.
 
 \solution
-% TODO
+\begin{enumerate}
+	\item In this case $f$ is left adjoint to $g$.
+	\item In this case $f$ is not left adjoint to $g$, as $g(1)=2\geq 2$ but $f(2)=2\nleq 1$.
+\end{enumerate}
 
 \exercise{1.101}
 \begin{enumerate}
@@ -254,5 +257,10 @@ See book.
 \end{enumerate}
 
 \solution
-% TODO
+Let $g:\R\to\Z$ be defined by $g(x)=\lceil x/3 \rceil$.  We will show by contradiction that $g$ does not have a left adjoint.
+
+For a left adjoint $f:\Z\to\R$, we must have $f(1)\leq 0 \iff 1\leq g(0)=\lceil 0/3\rceil=0$.  Clearly the second part does not hold, so we know $f(1)\nleq 0$.
+
+On the other hand, we know that $f(1)\leq \inf A$ where $A=\{x | g(x)\geq 1, x\in\R\}$.  However $1/n\in A$ for $n\in\Z^+$, as $\lceil 1/n\rceil = 1$ for all such $n$.  But $\inf\{1/n | n\in\Z^+\}=0$, which implies that $f(1)\leq 0$.  This is a contradiction, so $g$ must not have a left adjoint.
+
 
