@@ -296,9 +296,8 @@ Next we show $g_!$ is monotone.  Let $A, B\in Prt(S)$ such that $A\leq B$.  As b
 For the next part of the proof, we use proposition 1.107, and  derive our result by showing that for each $A\in Prt(S)$ and for each $B\in Prt(T)$ that both $A\leq g^*\circ g_!(A)$, and $g_!\circ g^*(B)\leq B$. 
 
  We start with showing $A\leq g^*\circ g_!(A)$. First we consider two additional functions, first $\bar{g}: Prt(S) \to Rel(T)$, where $g(r) = \{(g(x),g(y))| (x,y)\in r\}$.  Secondly an extension of $g^*$ to all relations, $\bar{g^*}:Rel(T)\to Rel(S)$, so for a relation $r$, we have $\bar{g^*}(r) = \{(x,y)| (g(x),g(y))\in r\}$ ($g^*$ is the restriction of $\bar{g^*}$ to equivalence relations).  Both $\bar{g}$ and $\bar{g^*}$ are monotone, which can be seen in proofs similar to our proofs for $g^*$ and $g_!$.  Additionally let the transitive closure of a set $Q$ be denoted $\hat{Q}$. We now note two things, one $A = \bar{g^*}\circ \bar{g}(A)$, and two $ g^*\circ g_!(A) = \bar{g^*}( \widehat{\bar{g}(A)})$.  As $\bar{g^*}$ is monotone and $\bar{g}(A)\leq \widehat{\bar{g}(A)}$ we have $A\leq g^*\circ g_!(A)$.
-
-
-%First assume $A\leq g^*(B)$.  This means that $A$ is a finer partition of $S$ than $g^*(B)$.  We want to show that $g_!(A)\leq B$, i.e. if $t_1$ and $t_2$  are in the same set in the partition $g_!(A)$, then they must be in the same set in the partition $B$
+ 
+ % TODO
 
 \exercise{1.109}
 Complete the proof of Proposition 1.107 by showing that (for monotone $f:P\to Q$ and $g:Q\to P$)
@@ -308,6 +307,9 @@ Complete the proof of Proposition 1.107 by showing that (for monotone $f:P\to Q$
 \end{enumerate}
 
 \solution
+Assume $f$ is left adjoint to $g$.  Let $q\in Q$ and $p=g(q)$. Then we know $p\leq g(q)$, so by definition of the left adjoint $f(p)\leq q$.  As we defined $p$ to be $g(q)$ this implies $f(g(q))\leq q$.
+
+Next assume $p\leq g(f(p))$ and $f(g(q))\leq q$ for any $p\in P, q\in Q$.  We need to show that $p\leq g(q)$ implies $f(p)\leq q$.  But $p\leq g(q)$ implies $f(p)\leq f(g(q))$ by the monotonicity of $f$, and $f(g(q))\leq q$ by assumption, so $f(p)\leq q$.
 
 \exercise{1.110}
 \begin{enumerate}
@@ -316,6 +318,15 @@ Complete the proof of Proposition 1.107 by showing that (for monotone $f:P\to Q$
 \end{enumerate}
 
 \solution
+\begin{enumerate}
+\item Suppose $g$ and $g'$ are right adjoint to $f:P\to Q$.  Then for any $q\in Q, p\in P$ we have
+$$f(p)\leq q\iff p\leq g(q)\iff p\leq g'(q).$$
+In particular this holds for $p=g(q)$, which means $g(q)\leq g'(q)$ as by reflexivity $g(q)\leq g(q)$.  Similarly for $p=g'(q)$, we have $g'(q)\leq g(q)$ as $g'(q)\leq g'(q)$.  Thus $g(q)\cong g'(q)$ for all $q\in Q$.
+
+\item The same holds for left adjoints.  To show this, suppose $f$ and $f'$ are left adjoint to $g:Q\to P$.  Then for any $p\in P,q\in Q$ we have
+$$f(p)\leq q\iff p\leq g(q)\iff f'(p)\leq q.$$
+The rest of the proof follows analogously to part 1.
+\end{enumerate}
 
 \exercise{1.112}
 Complete the proof of Proposition 1.111 by showing that left adjoints preserve joins.
