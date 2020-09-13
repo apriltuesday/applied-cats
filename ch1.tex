@@ -263,4 +263,64 @@ For a left adjoint $f:\Z\to\R$, we must have $f(1)\leq 0 \iff 1\leq g(0)=\lceil 
 
 On the other hand, we know that $f(1)\leq \inf A$ where $A=\{x | g(x)\geq 1, x\in\R\}$.  However $1/n\in A$ for $n\in\Z^+$, as $\lceil 1/n\rceil = 1$ for all such $n$.  But $\inf\{1/n | n\in\Z^+\}=0$, which implies that $f(1)\leq 0$.  This is a contradiction, so $g$ must not have a left adjoint.
 
+\exercise{1.103}
+Choose 6 different partitions on the set $S$ and for each, call it $c$, find $g_!(c)$ where $S, T,$ and $g:S\to T$ are the same as they were in Example 1.102.
+
+\exercise{1.105}
+Using the same $S, T,$ and $g:S\to T$ as in Example 1.102, find the partition $g^*(c)$ for each of the 5 partitions $c$ on the set $T$.
+
+\solution
+For both 1.103 and 1.105.
+
+\includegraphics[width=0.5\linewidth]{images/1-105.jpg}
+
+\exercise{1.106 (revised)}
+Prove that $g_!$ is left adjoint to $g^*$, as defined in the text.
+%Let $S,T,$ and $g:S\to T$ be as in Example 1.102.
+%\begin{enumerate}
+%	\item Choose a nontrivial partition $c:S\to P$ and let $g_!(c)$ be its push forwards partition on $T$.
+%	\item Choose any coarser partition $d:T\to P'$, i.e. where $g_!(c)\leq d$.
+%	\item Choose any non-coarser partition $e:T\to Q$, i.e. where $g_!(c)\nleq e$.
+%	\item Find $g^*(d)$ and $g^*(e)$.
+%	\item Since $g_!(c)\leq d$ and $g_!(c)\nleq e$, we should have $c\leq g^*(d)$ and $c\nleq g^*(e)$.  Show that this is true.
+%\end{enumerate}
+
+\solution
+
+Let $S, T$ be sets, and let $g: S \to T$.  Define $g_{!}, g^{*}$ as in the text.  
+
+We first show $g^{*}$ is monotone.  Let $A, B\in Prt(T)$ such that $A\leq B$.  Then for each set $A_i\in A$, $A_i \subseteq B_j$ for some $B_j\in B$, and as a result $g^{-1}(A_i)\subseteq g^{-1}(B_j)$ for each $A_i\in A$.  As the image of a partition under $g^*$ is the collection of preimages of that partition via $g$, we have $g^{*}(A)\leq g^{*}(B)$.
+
+Next we show $g_!$ is monotone.  Let $A, B\in Prt(S)$ such that $A\leq B$.  As before we know that for each set $A_i\in A$, $A_i\subseteq B_j$ for some $B_j\in B$. We consider $A,B\in Rel(S)$ i.e. subsets of $S\times S$. Note that $g_{!}(C)$  is the transitive closure of the relation $\{ (g(x),g(y)| (x, y)\in C\}$.  As $A\leq B$, $\{ (g(x),g(y)| (x, y)\in A\}\subseteq \{ (g(x),g(y)| (x, y)\in B\}$.  Using the fact that the function taking a relation to its transitive closure is monotone on the set of relations ordered by inclusion, we can conclude that $g_{!}(A)\leq g_{!}(B)$.
+
+For the next part of the proof, we use proposition 1.107, and  derive our result by showing that for each $A\in Prt(S)$ and for each $B\in Prt(T)$ that both $A\leq g^*\circ g_!(A)$, and $g_!\circ g^*(B)\leq B$. 
+
+ We start with showing $A\leq g^*\circ g_!(A)$. First we consider two additional functions, first $\bar{g}: Prt(S) \to Rel(T)$, where $g(r) = \{(g(x),g(y))| (x,y)\in r\}$.  Secondly an extension of $g^*$ to all relations, $\bar{g^*}:Rel(T)\to Rel(S)$, so for a relation $r$, we have $\bar{g^*}(r) = \{(x,y)| (g(x),g(y))\in r\}$ ($g^*$ is the restriction of $\bar{g^*}$ to equivalence relations).  Both $\bar{g}$ and $\bar{g^*}$ are monotone, which can be seen in proofs similar to our proofs for $g^*$ and $g_!$.  Additionally let the transitive closure of a set $Q$ be denoted $\hat{Q}$. We now note two things, one $A = \bar{g^*}\circ \bar{g}(A)$, and two $ g^*\circ g_!(A) = \bar{g^*}( \widehat{\bar{g}(A)})$.  As $\bar{g^*}$ is monotone and $\bar{g}(A)\leq \widehat{\bar{g}(A)}$ we have $A\leq g^*\circ g_!(A)$.
+
+
+%First assume $A\leq g^*(B)$.  This means that $A$ is a finer partition of $S$ than $g^*(B)$.  We want to show that $g_!(A)\leq B$, i.e. if $t_1$ and $t_2$  are in the same set in the partition $g_!(A)$, then they must be in the same set in the partition $B$
+
+\exercise{1.109}
+Complete the proof of Proposition 1.107 by showing that (for monotone $f:P\to Q$ and $g:Q\to P$)
+\begin{enumerate}
+	\item if $f$ is left adjoint to $g$ then for any $q\in Q$ we have $f(g(q))\leq q$, and
+	\item if $p\leq g(f(p))$ and $f(g(q))\leq q$, then $p\leq g(p)$ iff $f(p)\leq q$ holds, for all $p\in P$ and $q\in Q$.
+\end{enumerate}
+
+\solution
+
+\exercise{1.110}
+\begin{enumerate}
+	\item Show that if $f:P\to Q$ has a right adjoint $g$, then it is unique up to isomorphism.  That is, for any other right adjoint $g'$, we have $g(q)\cong g'(q)$ for all $q\in Q$.
+	\item Is the same true for left adjoints?  That is, if $h:P\to Q$ has a left adjoint, is it necessarily unique up to isomorphism?
+\end{enumerate}
+
+\solution
+
+\exercise{1.112}
+Complete the proof of Proposition 1.111 by showing that left adjoints preserve joins.
+
+\solution
+
+
 
