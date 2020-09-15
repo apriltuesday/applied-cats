@@ -332,6 +332,26 @@ The rest of the proof follows analogously to part 1.
 Complete the proof of Proposition 1.111 by showing that left adjoints preserve joins.
 
 \solution
+Let $f:P\to Q$ and $g:Q\to P$ be monotone maps with $f$ left adjoint to $g$.  Let $A\subseteq P$ and let $j = \bigvee A$ be its join.  Then since $f$ is monotone $f(a)\leq f(j)$ for all $a\in A$, so $f(j)$ is an upper bound for $f(A)$.
 
+Next we will show that $f(j)$ is a least upper bound.  Suppose $b$ is some other upper bound for $f(A)$.  So for any $a\in A$, we know $f(a)\leq b$ which implies $a\leq g(b)$ by the fact that $f$ is left adjoint.  Hence $g(b)$ is an upper bound for $A$, and by definition of the join we know $j\leq g(b)$, which implies $f(j)\leq b$, again by definition of a Galois connection.  Therefore $f(j)$ is the join of $f(A)$.
 
+\exercise{1.114}
+Discussed in person.
+
+\exercise{1.118}
+Choose sets $X$ and $Y$ with 2-4 elements each, and a function $f:X\to Y$.
+\begin{enumerate}
+	\item Choose $B_1,B_2\subseteq Y$ and find $f^*(B_1)$ and $f^*(B_2)$.
+	\item Choose $A_1, A_2\subseteq A$v and find $f_!(A_1)$ and $f_!(A_2)$.
+	\item Find $f_*(A_1)$ and $f_*(A_2)$.
+\end{enumerate}
+
+\solution
+\includegraphics[width=0.5\linewidth]{images/1-118.jpg}
+\begin{enumerate}
+	\item $f^*(\{a,b\}) = \{1,2,3\}$ and $f^*(\{c\})=\{4\}$
+	\item $f_!(\{1,4\}) = \{a,c\}$ and $f_!(\{2,3\})=\{a\}$
+	\item $f_*(\{1,4\}) = \{b\}$ and $f_*(\{2,3\})=\{a, b\}$
+\end{enumerate}
 
