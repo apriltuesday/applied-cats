@@ -355,3 +355,18 @@ Choose sets $X$ and $Y$ with 2-4 elements each, and a function $f:X\to Y$.
 	\item $f_*(\{1,4\}) = \{b\}$ and $f_*(\{2,3\})=\{a, b\}$
 \end{enumerate}
 
+\exercise{1.119}
+Suppose $f$ is left adjoint to $g$.  Show that
+\begin{enumerate}
+	\item $p\leq (f\fcmp g)(p)$
+	\item $(f \fcmp g\fcmp f \fcmp g)(p)\cong (f\fcmp g)(p)$
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+	\item From Proposition 1.107 we immediately have that $p\leq (f\fcmp g)(p)$ from the fact that $f$ is left adjoint to $g$.
+	\item If we apply Proposition 1.107 to $(f\fcmp g)(p)\in P$, this gives us $(f\fcmp g)(p)\leq (f\fcmp g)((f\fcmp g)(p))$.  If we apply the other part to $f(p)\in Q$, this gives us $(g\fcmp f)(f(p))\leq f(p)$, and because $g$ is monotone this implies that $(f\fcmp g\fcmp f\fcmp g)(p) \leq (f\fcmp g)(p)$.  Hence $(f \fcmp g\fcmp f \fcmp g)(p)\cong (f\fcmp g)(p)$.
+\end{enumerate}
+
+\exercise{1.124, 1.125}
+Discussed in person.
