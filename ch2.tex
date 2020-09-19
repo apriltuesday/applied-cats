@@ -1,0 +1,60 @@
+\chapter{Resource Theories}
+
+\exercise{2.5}
+Is $(\R, \leq, 1, *)$ a symmetric monoidal preorder?
+
+\solution
+It is not a monoidal preorder, as for example $-5\leq -1$ and $-2\leq -1$, but $-5*-2\nleq -1*-1$.
+
+\exercise{2.8}
+Check that if $(M, *,e)$ is a commutative monoid then $(\textbf{Disc}_M,=,*,e)$ is a symmetric monoidal preorder.
+
+\solution
+Unitality, associativity, and symmetry come for free from the definition of a commutative monoid, so we only need to check monotonicity.  Since $x\leq y\iff x=y$ this is easy to check, as $x_1\leq y_1$ and $x_2\leq y_2$ implies $x_1=y_1$ and $x_2=y_2$ which in turn implies that $x_1*x_2 = y_1 * y_2$.
+
+\newpage
+
+\exercise{2.20}
+Formally prove that $t\leq v+w, w+u\leq x+z, v+x\leq y$ implies $t+u\leq y+z$.  Be explicit about where reflexivity and transitivity are used, and why symmetry need not be used.
+
+\solution
+In the below, R=reflexivity, M=monotonicity, A=associativity, T=transitivity.  Symmetry is not used, which you can tell from the diagram from the fact that no wires cross.
+\begin{align}
+	t\leq v+w, u\leq u &&\implies&& t+u\leq (v+w)+u = v+(w+u) &\quad& \textrm{[R, M, A, T]}\label{1} \\
+	(\ref{1}),w+u\leq x+z &&\implies&& v+(w+u)\leq v+(x+z) &\quad& \textrm{[M]}\label{2} \\
+	(\ref{1},\ref{2}) &&\implies&& t+u\leq v+(x+z) = (v+x)+z &\quad& \textrm{[T, A]}\label{3} \\
+	v+x\leq y, z\leq z &&\implies&& (v+x)+z\leq y+z &\quad& \textrm{[M]}\label{4} \\
+	(\ref{3},\ref{4}) &&\implies&& t+u\leq y+z &\quad& \textrm{[T]}\label{5}
+\end{align}
+
+\exercise{2.21}
+Skipped.
+
+\exercise{2.29}
+Consider $(\B,\leq)$ with monoidal product $\lor$.  What's the monoidal unit?  Does it satisfy the rest of the conditions?
+
+\solution
+The monoidal unit should be $\texttt{false}$.  Discussed why in person (i.e. truth table)
+
+\exercise{2.31}
+Show that there is a monoidal structure on $(\N, \leq)$ where the monoidal product is standard $*$.  What should the monoidal unit be?
+
+\solution
+The monoidal unit should be 1.  We will show monotonicity as the other conditions are obvious.  If $x_1\leq y_1$ and $x_2\leq y_2$, then there are $a_1,a_2\in\N$ such that $y_1 = x_1+a_1$ and $y_2=x_2+a_2$.  Then
+$$y_1 * y_2 = (x_1 + a_1) * (x_2 + a_2)= x_1*x_2+a_1*x_2 + a_2*x_1 + a_1*a_2\geq x_1*x_2.$$
+
+\exercise{2.33}
+Consider the divisibility order $(\N, |)$.  Does $0$ as monoidal unit and $+$ as monoidal product satisfy the conditions?
+
+\solution
+It does not, as for example $2|4$ and $1|1$, but $(2+1)\nmid(4+1)$, so monotonicity fails.
+
+\exercise{2.34}
+Consider the preorder $\textbf{NMY}$ with Hasse diagram $\texttt{no}\to\texttt{maybe}\to\texttt{yes}$, monoidal unit $\texttt{yes}$ and ``min'' as the monoidal product.  Define what ``min'' should be and check that the axioms hold.
+
+\solution
+
+
+
+
+
