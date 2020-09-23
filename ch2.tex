@@ -53,8 +53,56 @@ It does not, as for example $2|4$ and $1|1$, but $(2+1)\nmid(4+1)$, so monotonic
 Consider the preorder $\textbf{NMY}$ with Hasse diagram $\texttt{no}\to\texttt{maybe}\to\texttt{yes}$, monoidal unit $\texttt{yes}$ and ``min'' as the monoidal product.  Define what ``min'' should be and check that the axioms hold.
 
 \solution
+\begin{tabular}{c|ccc} 
+min & no & maybe & yes \\
+\hline no & no & no & no \\
+maybe & no & no & maybe \\
+yes & no & maybe & yes
+\end{tabular}
 
+\exercise{2.35}
+Let $S$ be a set and let $P(S)$ be its power set, with the subset relation as order.  Does $P(S)$ with unit $S$ and product given by set intersection satisfy the conditions of symmetric monoidal preorder?
 
+\solution
+The other conditions are easy to show, so we will show monotonicity only.  Let $A_1, A_2, B_1, B_2\subseteq S$ where $A_1\subseteq B_1$ and $A_2\subseteq B_2$.  Then $A_1\cap A_2 \subseteq A_1\subseteq B_1$ and $A_1\cap A_2\subseteq A_2\subseteq B_2$, which implies that $A_1\cap A_2\subseteq B_1\cap B_2$.
 
+\exercise{2.36}
+Let $\texttt{Prop}^\N$ denote the set of all mathematical statements one can make about a natural number, where we consider two statements to be the same if one is true if and only if the other is true.  Given $P,Q\in\texttt{Prop}^\N$, we say $P\leq Q$ if for all $n\in\N$, whenever $P(n)$ is true, so is $Q(n)$.  Define a monoidal unit and product on $\texttt{Prop}^\N$.
 
+\solution
+We define the monoidal unit to be the statement ``$n$ is a natural number'' (i.e. a statement that's always true) and the monoidal product to be logical AND.  Note that this SMP effectively reduces to the previous example, where we consider subsets $P = \{n\in\N\ | P(n)\}$.
+
+\exercise{2.39}
+Complete the proof of Proposition 2.38.
+
+\solution
+These conditions are inherited from the original SMP, so we have decided this problem is dumb.
+
+\exercise{2.40}
+What is $\textbf{Cost}^\textrm{op}$ as a preorder?  What is the monoidal unit and product?
+
+\solution
+$\textbf{Cost}^\textrm{op}$ is the same as $\textbf{Cost}$ but using $\leq$ rather than $\geq$.  From Proposition 2.38, we know that $\textbf{Cost}^\textrm{op}$ can use the same monoidal unit and product as the original, i.e. $0$ and $+$.
+
+\exercise{2.43}
+Check that the map $g:(\B, \leq, \true, \land)\to([0,\infty],\geq,0,+)$ with $g(\false) = \infty$ and $g(\true)=0$ is monoidal monotone.  Is $g$ strict?
+
+\solution
+Clearly $g(\false)\leq g(\true)$ as $\infty\geq 0$, so $g$ is monotone.  In addition $g(\true)=0$, so the function preserves identities exactly.  Finally note that $g(\false)+g(\false) = \infty + \infty = \infty = g(\false)=g(\false\land\false)$, the other products are trivial as we've shown the identity is preserved.  Hence $g$ is strict monoidal monotone.
+
+\exercise{2.44}
+Let $\textbf{Bool}$ and $\textbf{Cost}$ be as above, and consider $d,u:[0,\infty]\to\B$ as follows:
+$$d(x):=\left\{\begin{array}{ll}\text { false } & \text { if } x>0 \\ \text { true } & \text { if } x=0\end{array} \quad\quad\quad u(x):=\left\{\begin{array}{ll}\text { false } & \text { if } x=\infty \\ \text { true } & \text { if } x<\infty\end{array}\right.\right.$$
+Is $d$ monotonic, monoidal, and/or strict?  Is $u$?
+
+\solution
+
+\exercise{2.45}
+\begin{enumerate}
+	\item Is $(\N, \leq, 1, *)$ a monoidal preorder?
+	\item If not, why not?  If so, does there exist a monoidal monotone $(\N,\leq, 0, +)\to (\N, \leq, 1,*)$?  If not, why not?
+	\item Is $(\Z,\leq, *, 1)$ a monoidal preorder?
+\end{enumerate}
+
+\solution
 
