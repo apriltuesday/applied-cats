@@ -79,10 +79,10 @@ Complete the proof of Proposition 2.38.
 These conditions are inherited from the original SMP, so we have decided this problem is dumb.
 
 \exercise{2.40}
-What is $\textbf{Cost}^\textrm{op}$ as a preorder?  What is the monoidal unit and product?
+What is $\Cost^\textrm{op}$ as a preorder?  What is the monoidal unit and product?
 
 \solution
-$\textbf{Cost}^\textrm{op}$ is the same as $\textbf{Cost}$ but using $\leq$ rather than $\geq$.  From Proposition 2.38, we know that $\textbf{Cost}^\textrm{op}$ can use the same monoidal unit and product as the original, i.e. $0$ and $+$.
+$\Cost^\textrm{op}$ is the same as $\Cost$ but using $\leq$ rather than $\geq$.  From Proposition 2.38, we know that $\Cost^\textrm{op}$ can use the same monoidal unit and product as the original, i.e. $0$ and $+$.
 
 \exercise{2.43}
 Check that the map $g:(\B, \leq, \true, \land)\to([0,\infty],\geq,0,+)$ with $g(\false) = \infty$ and $g(\true)=0$ is monoidal monotone.  Is $g$ strict?
@@ -91,11 +91,14 @@ Check that the map $g:(\B, \leq, \true, \land)\to([0,\infty],\geq,0,+)$ with $g(
 Clearly $g(\false)\leq g(\true)$ as $\infty\geq 0$, so $g$ is monotone.  In addition $g(\true)=0$, so the function preserves identities exactly.  Finally note that $g(\false)+g(\false) = \infty + \infty = \infty = g(\false)=g(\false\land\false)$, the other products are trivial as we've shown the identity is preserved.  Hence $g$ is strict monoidal monotone.
 
 \exercise{2.44}
-Let $\textbf{Bool}$ and $\textbf{Cost}$ be as above, and consider $d,u:[0,\infty]\to\B$ as follows:
+Let $\Bool$ and $\Cost$ be as above, and consider $d,u:[0,\infty]\to\B$ as follows:
 $$d(x):=\left\{\begin{array}{ll}\text { false } & \text { if } x>0 \\ \text { true } & \text { if } x=0\end{array} \quad\quad\quad u(x):=\left\{\begin{array}{ll}\text { false } & \text { if } x=\infty \\ \text { true } & \text { if } x<\infty\end{array}\right.\right.$$
 Is $d$ monotonic, monoidal, and/or strict?  Is $u$?
 
 \solution
+Both $d$ and $u$ are monotonic.  They also both map the unit in $\Cost$, namely $0$, exactly to the unit in $\Bool$, $\true$.
+
+Finally, they both strictly preserve the monoidal product, which can be shown by a truth table.  In short, for $d$, anything added to a number $x>0$ continues to be greater than 0, while $0+0=0$; for $u$, anything added to $\infty$ is still $\infty$, while the sum of two finite numbers is still finite.
 
 \exercise{2.45}
 \begin{enumerate}
@@ -105,4 +108,67 @@ Is $d$ monotonic, monoidal, and/or strict?  Is $u$?
 \end{enumerate}
 
 \solution
+\begin{enumerate}
+	\item Yes, $(\N,\leq,1,*)$ is a monoidal preorder, as we showed in Exercise 2.31.
+	\item Let $f:\N\to\N$ be defined by $f(n)=1$ for any $n\in\N$.  Then clearly $f(0)=1$ so the unit is preserved, and for any $n,m\in\N$ we have $f(n)*f(m)=1*1=1=f(n+m)$, so the product is preserved.  Hence $f$ is strict monoidal monotone.
+	\item No, $(\Z,\leq,1,*)$ is not, similar to what we showed in Exercise 2.5.
+\end{enumerate}
+
+\exercise{2.50}
+\begin{enumerate}
+	\item Show that if you start with a preorder $(P,\leq)$, define a $\Bool$-category as in Example 2.47, and turn it back to a preorder as in Theorem 2.49, you get back the preorder you started with.
+	\item Similarly, show that if you start with a $\Bool$-category, turn it into a preorder, then turn it back to a $\Bool$-category, you get back the $\Bool$-category you started with.
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+	\item Let $(P,\leq)$ be a preorder and let $\mathcal{X}$ be the constructed $\Bool$-category.  So $\Ob(\mathcal{X})=P$ and $\mathcal{X}(x,y)=\true$ if and only if $x\leq y$.  As this is an if-and-only-if, if you do the reverse construction you get back exactly the original preorder.
+	\item This proof is basically the same as the previous.
+\end{enumerate}
+
+\exercise{2.52}
+Which distance is bigger under the above description, $d($Spain, US$)$ or $d($US, Spain$)$?
+
+\solution
+$d($US, Spain$)$ is bigger, since the US is larger in area than Spain.
+
+\exercise{2.55}
+Consider the SMP $(\R_{\geq0},\geq,0,+)$.  How would you characterise the difference between a Lawvere metric space and a $(\R_{\geq0},\geq,0,+)$-category?
+
+\solution
+The latter is the same as a Lawvere metric space except without infinite distances.
+
+\exercise{2.58}
+See book.
+
+\solution
+\begin{tabular}{c|cccc}
+$d(\nearrow)$ & $A$ & $B$ & $C$ & $D$ \\
+\hline$A$ & 0 & 6 & 3 & 11 \\
+$B$ & 2 & 0 & 5 & 5 \\
+$C$ & 5 & 3 & 0 & 8 \\
+$D$ & 11 & 9 & 6 & 0
+\end{tabular}
+
+\exercise{2.60}
+See book.
+
+\solution
+\begin{tabular}{c|cccc}
+$\nearrow$ & $A$ & $B$ & $C$ & $D$ \\
+\hline$A$ & 0 & $\infty$ & 3 & $\infty$ \\
+$B$ & 2 & 0 & $\infty$ & 5 \\
+$C$ & $\infty$ & 3 & 0 & $\infty$ \\
+$D$ & $\infty$ & $\infty$ & 6 & 0
+\end{tabular}
+
+\exercise{2.61}
+Interpret what a \textbf{NMY}-category is (Exercise 2.34).
+
+\solution
+This is a bit like a Hasse diagram (where edges either exist or don't), except with the possibility of an edge being ``maybe'' present.
+
+\exercise{2.62}
+Discussed in person.
+
 
