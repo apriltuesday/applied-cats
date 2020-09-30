@@ -122,7 +122,7 @@ Finally, they both strictly preserve the monoidal product, which can be shown by
 
 \solution
 \begin{enumerate}
-	\item Let $(P,\leq)$ be a preorder and let $\mathcal{X}$ be the constructed $\Bool$-category.  So $\Ob(\mathcal{X})=P$ and $\mathcal{X}(x,y)=\true$ if and only if $x\leq y$.  As this is an if-and-only-if, if you do the reverse construction you get back exactly the original preorder.
+	\item Let $(P,\leq)$ be a preorder and let $\mcX$ be the constructed $\Bool$-category.  So $\Ob(\mcX)=P$ and $\mcX(x,y)=\true$ if and only if $x\leq y$.  As this is an if-and-only-if, if you do the reverse construction you get back exactly the original preorder.
 	\item This proof is basically the same as the previous.
 \end{enumerate}
 
@@ -168,7 +168,41 @@ Interpret what a \textbf{NMY}-category is (Exercise 2.34).
 \solution
 This is a bit like a Hasse diagram (where edges either exist or don't), except with the possibility of an edge being ``maybe'' present.
 
-\exercise{2.62}
+\exercise{2.62, 2.63}
 Discussed in person.
+
+\exercise{2.67}
+Draw the Hasse diagram for the preorder corresponding to the regions US, Spain, and Boston with the ``regions of the world'' Lawvere metric space.
+
+\solution
+This has a single nonidentity arrow, Boston $\to$ US, and no others, basically telling us that Boston is in the US but there are no other such containment relations among the three regions.
+
+\exercise{2.68}
+\begin{enumerate}
+	\item Find another monoidal monotone $g:\Cost\to\Bool$ different from the one defined in the Eq. 2.66.
+	\item Find a Lawvere metric space $\mcX$ on which your monoidal monotone $g$ and the monoidal monotone $f$ given in Eq. 2.66 give different answers, $\mcX_f\neq \mcX_g$.
+\end{enumerate}
+
+\solution
+Let
+$$g(x):=\left\{\begin{array}{ll}\false & \text { if } x=\infty \\ \true & \text { if } x<\infty\end{array}\right.$$
+Then for the regions Lawvere metric space used above, the constructed preorder will be different.  For $\mcX_g$ every point is equivalent to every other point, as all regions are finite distances from one another, whereas there are points that are not connected for $\mcX_f$, e.g. Spain and US, as their distance is not zero.
+
+\exercise{2.73}
+\begin{enumerate}
+	\item Show that a skeletal dagger $\Cost$-category is an extended metric space.
+	\item Use Exercise 1.73 to make sense of the analogy ``preorders are to sets as Lawvere metric spaces are to extended metric spaces.''
+\end{enumerate}
+
+\solution
+Let $\mcX$ be a skeletal dagger $\Cost$-category, and let $x,y,z\in\mcX$.  We will define $d(x,y)=\mcX(x,y)$.  From the definition of a $\mcV$-category we know that $0\geq\mcX(x,x)=d(x,x)$, so we have property (a) from Definition 2.51.  We also know that $\mcX(x,y)+\mcX(y,z)\geq \mcX(x,z)$, which gives us property (d).
+
+From the fact that $\mcX$ is dagger, we know that the identity function is a $\mcV$-functor from $\mcX$ to $\mcX^\textrm{op}$.  Hence for each $x,y\in\mcX$, we have $\mcX(x,y)\geq\mcX(y,x)$ as well as $\mcX(y,x)\geq\mcX(x,y)$, which implies that $\mcX(x,y)=\mcX(y,x)$.  This proves property (c) holds.
+
+Finally, suppose that $\mcX(x,y)=0$.  This implies that $0\geq \mcX(x,y)$, and from property (c) $0\geq\mcX(y,x)$.  Therefore due to the fact that $\mcX$ is skeletal, we have $x=y$.  This proves property (b).  Hence $\mcX$ is an extended metric space.
+
+In Exercise 1.73 we showed that skeletal dagger preorders are sets, and analogously we now know that skeletal dagger Lawvere metric spaces are extended metric spaces.
+
+
 
 
