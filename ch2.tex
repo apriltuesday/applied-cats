@@ -203,6 +203,42 @@ Finally, suppose that $\mcX(x,y)=0$.  This implies that $0\geq \mcX(x,y)$, and f
 
 In Exercise 1.73 we showed that skeletal dagger preorders are sets, and analogously we now know that skeletal dagger Lawvere metric spaces are extended metric spaces.
 
+\exercise{2.75}
+Show that the $\mcV$-product of $\mcV$-categories is indeed a $\mcV$-category.  Point out exactly where the symmetry condition is used.
+
+\solution
+Let $\mcX\times\mcY$ be the $\mcV$-product of $\mcV$-categories.
+
+For $(x,y)\in\Ob(\mcX\times\mcY)$,  we have $(\mcX\times\mcY)((x,y),(x,y))=\mcX(x,x)\otimes\mcY(y,y)$.  Since $\mcX$ and $\mcY$ are $\mcV$-categories, we know $I\leq\mcX(x,x)$ and $I\leq\mcY(y,y)$, which implies that $I\otimes I=I\leq\mcX(x,x)\otimes\mcY(y,y)$, again by the properties of the monoidal preorder $\mcV$.  Therefore $I\leq(\mcX\times\mcY)((x,y),(x,y))$.
+
+Next, let $(x_1,y_1),(x_2,y_2),(x_3,y_3)\in\Ob(\mcX\times\mcY)$.  Then
+\begin{align*}
+	&(\mcX\times\mcY)((x_1,y_1),(x_2,y_2))\otimes(\mcX\times\mcY)((x_2,y_2),(x_3,y_3))\\ 
+	=&\left(\mcX(x_1,x_2)\otimes\mcY(y_1,y_2)\right)\otimes\left(\mcX(x_2,x_3)\otimes\mcY(y_2,y_3)\right)\\
+	=&\left(\mcX(x_1,x_2)\otimes\mcX(x_2,x_3)\right)\otimes\left(\mcY(y_1,y_2)\otimes\mcY(y_2,y_3)\right)\quad\textrm{by symmetry}\\
+	\leq&\hspace{1.5cm}\mcX(x_1,x_3)\hspace{1cm}\otimes\hspace{1cm}\mcY(y_1,y_3)\\
+	=&(\mcX\times\mcY)((x_1,y_1),(x_3,y_3).
+\end{align*}
+(The inequality is from the definition of $\mcV$-category and the monoidal product in $\mcV$.)
+Therefore $\mcX\times\mcY$ is a $\mcV$-category.
+
+\exercise{2.78}
+Considering $\R$ as a $\Cost$ category, form the $\Cost$-product $\R\times\R$.  What is the distance from $(5,6)$ to $(-1,4)$?
+
+\solution
+$$(\R\times\R)((5,6),(-1,4)) = \R(5,-1)+\R(6,4)=6+2=8$$
+
+\exercise{2.82}
+Prove that a monoidal preorder $(V,\leq, I,\otimes)$ is monoidal closed iff, given any $v\in V$, the map $(-\otimes v):V\to V$ given by multiplying with $v$ has a right adjoint, written $(v \multimap-): V \to V$.
+
+\solution
+
+\exercise{2.84}
+Show that $\Bool=(\B,\leq,\true,\land)$ is monoidal closed.
+
+\solution
+
+
 
 
 
