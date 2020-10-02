@@ -232,13 +232,42 @@ $$(\R\times\R)((5,6),(-1,4)) = \R(5,-1)+\R(6,4)=6+2=8$$
 Prove that a monoidal preorder $(V,\leq, I,\otimes)$ is monoidal closed iff, given any $v\in V$, the map $(-\otimes v):V\to V$ given by multiplying with $v$ has a right adjoint, written $(v \multimap-): V \to V$.
 
 \solution
+Let $w,w'\in V$.  Then as $v\leq v$, we know $w\leq w'\implies w\otimes v\leq w'\otimes v$ by the definition of a monoidal preorder.  So the map $(-\otimes v)$ is monotone.
+
+Next we suppose $\mcV$ is closed.  Then as $(v\multimap w)\leq (v\multimap w)$, by the definition of monoidal closure we have $\left((v\multimap w)\otimes v\right) \leq w$.
+
+Finally if $w\leq w'$, then we want to show $(v\multimap w)\leq (v\multimap w')$.  But from the previous step we have $\left((v\multimap w)\otimes v\right)\leq w\leq w',$ which again by definition of closure gives us $(v\multimap w)\leq (v\multimap w')$.  Thus the map $(v \multimap-)$ is monotone.
+
+As the definition of a hom-element gives us the rest of the conditions of a Galois connection, this shows that a SMP is closed if and only if $(-\otimes v)$ has a right adjoint, namely $(v\multimap-)$.
 
 \exercise{2.84}
 Show that $\Bool=(\B,\leq,\true,\land)$ is monoidal closed.
 
 \solution
+We show that $\multimap$ is the $\implies$ operator.  Let $a,v,w\in\B$.  Then the usual rules of logic tell us
+$$ a\land v\leq w \quad\textrm{iff}\quad a\leq (v\implies w).$$
 
+\exercise{2.92}
+\begin{enumerate}
+	\item What is $\bigvee\varnothing$ in the case of (a) $\Bool$ and (b) $\Cost$?
+	\item What is $x\lor y$ in the same cases?
+\end{enumerate}
 
+\solution
+
+\exercise{2.93}
+Show that $\Bool=(\B,\leq,\true,\land)$ is a quantale.
+
+\solution
+
+\exercise{2.94}
+Let $S$ be a set.  Is the power set monoidal preorder $(P(S),\subseteq, S, \cap)$ a quantale?
+
+\solution
+
+\exercise{2.103}
+
+\exercise{2.104}
 
 
 
