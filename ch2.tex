@@ -254,20 +254,66 @@ $$ a\land v\leq w \quad\textrm{iff}\quad a\leq (v\implies w).$$
 \end{enumerate}
 
 \solution
+\begin{enumerate}
+	\item In $\Bool$, $\bigvee\varnothing=\false$.  In $\Cost$, it is $\infty$.
+	\item In $\Bool$, $x\lor y$ is logical-or.  In $\Cost$, it is $\min$.
+\end{enumerate}
 
 \exercise{2.93}
 Show that $\Bool=(\B,\leq,\true,\land)$ is a quantale.
 
 \solution
+We've already showed that $\Bool$ is closed.  As the join is logical-or, we can clearly ``or'' together as many booleans as we like and get a boolean value, hence $\Bool$ is a quantale.
 
 \exercise{2.94}
 Let $S$ be a set.  Is the power set monoidal preorder $(P(S),\subseteq, S, \cap)$ a quantale?
 
 \solution
+$P(S)$ clearly contains all joins, i.e. set unions, so to show that it is a quantale we will show that it is monoidal closed.  We define the hom-element to be $A\multimap B := \overline B\cup C$ (where $\overline B$ is the complement of $B$ in $S$).
+
+Then for any $A,B,C\subseteq S$, we have $A\cap B\subseteq C\implies A\subseteq \overline B\cup C$, as $A$ consists of the part of $A$ not in $B$, i.e. within $\overline B$, and the part of $A$ within $B$, which we've assumed is a subset of $C$. 
+
+Finally if $A\subseteq \overline B\cup C$, then
+$$A\cap B\subseteq (\overline B \cup C)\cap B=(\overline B\cap B)\cup(C \cap B)=B\cap C\subseteq C.$$
+Thus we have shown $A\cap B\subseteq C\iff A\subseteq\overline B\cup C$, which proves that $(P(S),\subseteq, S, \cap)$ is a quantale.
 
 \exercise{2.103}
+Write down the 2 $\times 2$ -identity matrix for each of the quantales $(\mathbb{N}, \leq, 1, *)$, $\Bool=(\mathbb{B}, \leq,$ true, $\wedge),$ and $\Cost=([0, \infty], \geq, 0,+)$.
+
+\solution
+(Note the first example only has finite joins, which is okay for matrix multiplication.)  For $\N$ the standard identity matrix works.
+
+For $\Bool$, the matrix with true on the diagonal and false everywhere else is the identity matrix.
+
+For $\Cost$, the matrix with 0 on the diagonal and $\infty$ on the off diagonals is the identity.
 
 \exercise{2.104}
+Let $\mcV=(V,\leq, I, \otimes,\multimap)$ be a quantale.  Prove the identity and associative laws for $\mcV$-matrix multiplication.
 
+\solution
+Let $A$ and $B$ be sets and $M:A\times B\to V$ a $\mcV$-matrix.  Then
+\begin{align*}
+	(I_A*M)(a,b) &= \bigvee_{a'\in A}I_A(a,a')\otimes M(a',b). \\
+	\intertext{These entries are nonzero only when $a=a'$ by definition of $I_A$, so this gives us}
+	&= \left[\bigvee_{a'\neq a} I_A(a,a')\otimes M(a',b)\right] \lor I_A(a,a)\otimes M(a,b)\\
+	&= \left[\bigvee_{a'\neq a}\left(\bigvee\varnothing\otimes M(a',b)\right)\right]\lor I\otimes M(a,b)\\
+	&= \left[\bigvee_{a'\neq a}\left(\bigvee_{x\in\varnothing}(x\otimes M(a',b))\right)\right]\lor M(a,b)\\
+	\intertext{by application of Proposition 2.87.  As the join over the empty set is 0, we have}
+	&= \left[\bigvee_{a'\neq a}0\right]\lor M(a,b) = M(a,b).
+\end{align*}
+This proves $I_A*M = M$.
 
-
+Next, let $M:A\times B\to V, N:B\times C\to V$, and $P:C\times D\to V$.  Then
+\begin{align*}
+	((M*N)*P)(a,d) &= \left[\bigvee_{b\in B} M(a,b)\otimes N(b,c)\right]*P\\
+	&= \bigvee_{c\in C}\left(\left[\bigvee_{b\in B} M(a,b)\otimes N(b,c)\right] \otimes P(c,d)\right)\\
+	&= \bigvee_{c\in C} \bigvee_{b\in B}(M(a,b)\otimes N(b,c))\otimes P(c,d), \\
+	\intertext{again using Proposition 2.87.  By the associativity of the monoidal product, this gives us}
+	&= \bigvee_{c\in C}\bigvee_{b\in B} M(a,b)\otimes(N(b,c)\otimes P(c,d)).
+	\intertext{It is clear that we can switch the order of the joins, giving us}
+	&=  \bigvee_{b\in B}\bigvee_{c\in C} M(a,b)\otimes(N(b,c)\otimes P(c,d))\\
+	&= \bigvee_{b\in B}M(a,b)\otimes \left[\bigvee_{c\in C} N(b,c)\otimes P(c,d)\right]\\
+	&= M*\left[\bigvee_{c\in C} N(b,c)\otimes P(c,d)\right] \\
+	&= (M*(N*P))(a,d).
+\end{align*}
+Therefore $(M*N)*P = M*(N*P)$.
