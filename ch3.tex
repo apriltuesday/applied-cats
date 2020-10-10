@@ -33,22 +33,51 @@ In the loop graph, we identified paths with numbers $n\in\N$.  Given $m,n\in\N$,
 The concatenation corresponds to $m+n$.
 
 \exercise{3.16}
+\begin{enumerate}
+	\item Write down the 10 paths in the free square category.
+	\item Name two distinct parallel paths.
+	\item Name two paths that are not parallel.
+\end{enumerate}
 
+\solution
+\begin{enumerate}
+	\item $\id_A, \id_B, \id_C, \id_D, f, g, h, i, f\fcmp h, g\fcmp i$
+	\item $f\fcmp h$ and $g\fcmp i$
+	\item $f$ and $g$
+\end{enumerate}
 
 \exercise{3.17}
+See text.
 
+\solution
+This has the same morphisms as the commutative square, so $\{A, B, C, D, f ,g, h, i, f\fcmp h\}$.
 
 \exercise{3.19}
+See text.
 
+\solution
+$\{z, s, s\fcmp s, s\fcmp s\fcmp s\}$
 
 \exercise{3.21}
+See text.
 
+\solution
+$G_1$: $f=g$
+
+$G_2$: $f=\id$
+
+$G_3$: $f\fcmp h=g\fcmp i$
+
+$G_4$: none
 
 \exercise{3.22}
 What is the preorder reflection of the category $\N$?
 
+\solution
+The preorder reflection of $\N$ is just the category with one object and its identity morphism.
+
 \exercise{3.25}
-Let $\underline{2}=\{1,2\}$ and $\underline{3}=\{1,2,3\}$.  Write down all nine elements of $\Set(\underline{2},\underline{3})$.
+Discussed in person.
 
 \exercise{3.30}
 \begin{enumerate}
@@ -56,8 +85,17 @@ Let $\underline{2}=\{1,2\}$ and $\underline{3}=\{1,2,3\}$.  Write down all nine 
 	\item How many distinct isomorphism are there $A\to\underline{3}$?
 \end{enumerate}
 
+\solution
+\begin{enumerate}
+	\item $f^{-1}(1) = b, f^{-1}(2)=a, f^{-1}(3)=c$
+	\item This is just the number of permutations of a set of three elements, namely $3!=6$.
+\end{enumerate}
+
 \exercise{3.31}
 Show that in any category $\mcC$, for any given object $c\in\mcC$, the identity $\id_c$ is an isomorphism.
+
+\solution
+By definition $\id_c\fcmp\id_c=\id_c$, so it's clearly an isomorphism.
 
 \exercise{3.32}
 A monoid in which every morphism is an isomorphism is a group.
@@ -66,8 +104,52 @@ A monoid in which every morphism is an isomorphism is a group.
 	\item Is the monoid in Example 3.18 a group?
 \end{enumerate}
 
+\solution
+\begin{enumerate}
+	\item $\N$ is not a group, as for example $s$ is not an isomorphism.  This is because $s$ composed with any element of the set of paths $\{z,s, s\fcmp s,\dots\}$ yields the set $\{s, s\fcmp s, s\fcmp s\fcmp s,\dots\}$, of which $z$ is clearly not a member.
+	\item $\mcC$ is a group.  There are only two morphisms: the identity $z$ which is an isomorphism, and $s$ where $s\fcmp s=z$ making it an isomorphism as well.
+\end{enumerate}
+
 \exercise{3.33}
 Let $G$ be a graph and $\Free(G)$ the corresponding free category.  Is it true that the only isomorphism in $\Free(G)$ are the identity morphisms?
+
+\solution
+This is true, since there are no equations, so for any $f:A\to B$ with an accompanying $g:B\to A$, we don't necessarily have $f\fcmp g=\id_A$ or $g\fcmp f=\id_B$.
+
+\exercise{3.37}
+Find all the functors from $\textbf{2}\to\textbf{3}$.
+
+\solution
+This is almost the number of functions that we found in Exercise 3.25 but without any that flip elements, which leaves 6.
+
+\exercise{3.39}
+Say where each of the 10 morphisms in $\mcF$ is is sent under the functor $F$ from Example 3.38.
+
+\solution
+$F(\id_{X'})=\id_{X}$ for any $X\in\{A,B,C,D\}$
+
+$F(y')=y$ for any $y\in\{f,g,h,i\}$
+
+$F(f'\fcmp h')=F(g'\fcmp i')=f\fcmp h$
+
+\exercise{3.40}
+See text.
+
+\solution
+One functor takes the arrow in $\mcC$ to the top arrow in $\mcD$, the other takes it to the bottom arrow.
+
+\exercise{3.43}
+Show that there is a category $\Cat$, where the objects are categories and morphisms are functors.
+
+\solution
+First we define $\id_\mcC:\mcC\to\mcC$ as follows: for any $c\in\Ob(\mcC)$, $\id_\mcC(c)=c$ and for any $f\in\mcC(c,d)$, $\id_\mcC(f)=f\in\mcC(\id_\mcC(c),\id_\mcC(d))=\mcC(c,d)$.  This is a functor, because $\id_\mcC(\id_c) = \id_c=\id_{\id_\mcC(c)}$, and for any $f\in\mcC(c_1,c_2)$ and $g\in\mcC(c_2,c_3)$. we have $\id_\mcC(f\fcmp g)=f\fcmp g = \id_\mcC(f)\fcmp\id_\mcC(g)$.
+
+Next we define composition of functors $F:\mcC\to\mcD$ and $G:\mcD\to\mcE$ as follows: for any $c\in\Ob(\mcC)$, $(F\fcmp G)(c) = G(F(c))$ and for any $f\in\mcC(c,d)$, $(F\fcmp G)(f) = G(F(f))$.  Then $F\fcmp G:\mcC\to\mcE$ is a functor due to the functoriality of $F$ and $G$.  In particular, we have
+$$(F\fcmp G)(\id_c)=G(F(\id_c))=G(\id_{F(c)})=\id_{G(F(c))}=\id_{(F\fcmp G)(c)},$$
+as well as
+$$(F\fcmp G)(f\fcmp g)=G(F(f\fcmp g)) = G(F(f)\fcmp F(g)) = G(F(f))\fcmp G(F(g)) = (F\fcmp G)(f)\fcmp (F\fcmp G)(g).$$
+
+Note that this composition is associative simply because function composition is associative.  Unitality holds because $\id_\mcC$ is the identity function on objects and morphisms, so $(\id_\mcC\fcmp F)(c)=F(c)$ and $(\id_\mcC\fcmp F)(f)=F(f)$ and similarly for $F\fcmp\id_\mcD$.  Therefore $\Cat$ is indeed a valid category.
 
 
 
