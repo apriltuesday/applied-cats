@@ -151,6 +151,51 @@ $$(F\fcmp G)(f\fcmp g)=G(F(f\fcmp g)) = G(F(f)\fcmp F(g)) = G(F(f))\fcmp G(F(g))
 
 Note that this composition is associative simply because function composition is associative.  Unitality holds because $\id_\mcC$ is the identity function on objects and morphisms, so $(\id_\mcC\fcmp F)(c)=F(c)$ and $(\id_\mcC\fcmp F)(f)=F(f)$ and similarly for $F\fcmp\id_\mcD$.  Therefore $\Cat$ is indeed a valid category.
 
+\exercise{3.45}
+For any functor $F:\textbf{1}\to\Set$ one can extract a set $F(1)$.  Show that for any set $S$, there is a functor $F_S:\textbf{1}\to\Set$ such that $F_S(1)=S$.
+
+\solution
+$F_S$ clearly preserves identities, and as $\textbf{1}$ only has the identity morphism is preserves composition as well.  Hence $F_S$ is a valid functor.
+
+\exercise{3.48}
+Discussed in person.
+
+\exercise{3.55}
+Show exactly how $\mcD^\mcC$ is a category.
+
+\solution
+Let $\alpha: F\to G$ and $\beta: G\to H$ be natural transformations.  We define the $c$-component of the composition to be $(\alpha\fcmp\beta)_c:F(c)\to H(c)$ by $(\alpha\fcmp\beta)_c = \alpha_c\fcmp\beta_c$.  This is a valid natural transformation as for any morphism $f:c\to d$ in $\mcC$, we have
+\begin{align*}
+	F(f)\fcmp (\alpha\fcmp\beta)_d &= F(f)\fcmp(\alpha_d\fcmp\beta_d)\\
+	&= (\alpha_c\fcmp G(f))\fcmp \beta_d,
+	\intertext{by associativity and the fact that $\alpha$ is a natural transformation, and similarly}
+	&=\alpha_c\fcmp(\beta_c\fcmp H(f))\\
+	&=(\alpha\fcmp\beta)_c\fcmp H(f).
+\end{align*}
+This composition rule for natural transformations is associative just because the underlying morphism composition is associative.
+
+We define the identity natural transformation on a functor $F$ to be $\iota_F:F\to F$ where $(\iota_F)_c:F(c)\to F(c)$ is just $\id_c$.  This is clearly natural by the definition of the identity morphism.  Then for any natural transformation $\alpha:F\to G$, we have for every $c$
+$$(\iota_F\fcmp \alpha)_c = (\iota_F)_c\fcmp \alpha_c = \id_c\fcmp\ \alpha_c = \alpha_c$$
+and similarly for $(\alpha\fcmp\iota_G)_c$.  This means $\iota_F\fcmp\alpha=\alpha$ and $\alpha\fcmp\iota_G=\alpha$.  Hence $\mcD^\mcC$ is a category where the objects are functors, the morphisms are natural transformations, and composition and identity are as defined above.
+
+\exercise{3.58}
+Let $\mcC$ be an arbitrary category and $\mcP$ a preorder.  Consider the following statements:
+\begin{enumerate}
+	\item For any two functors $F,G:\mcC\to\mcP$, there is at most one natural transformation $F\to G$.
+	\item For any two functors $F,G:\mcP\to\mcC$, there is at most one natural transformation $F\to G$.
+\end{enumerate}
+For each, if it is true, say why; if it is false, give a counterexample.
+
+\solution
+\begin{enumerate}
+	\item This is true, since a preorder has only one morphism between any two objects, so there is only one choice for each component $\alpha_c:F(c)\to G(c)$.
+	\item This is not true, for example if $\mcC$ is a category with two objects $c$ and $d$ and two parallel morphisms $f,g:c\to d$, then any functors from $\mcP$ have a choice of which morphism to map to.
+\end{enumerate}
+
+\exercise{3.62}
+See text.
+
+\exercise{3.64}
 
 
 
