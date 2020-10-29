@@ -195,9 +195,89 @@ For each, if it is true, say why; if it is false, give a counterexample.
 \exercise{3.62}
 See text.
 
+\solution
+\begin{tabular}{c|cc}
+\text { Arrow } & \text { source } & \text { target } \\
+\hline Mngr & Employee & Employee \\
+WorksIn & Employee & Department \\
+Secr & Department & Employee \\
+FName & Employee & string \\
+DName & Department & string
+\end{tabular}
+\hspace{2cm}
+\begin{tabular}{c|}
+\text { Vertex } \\
+\hline Employee \\
+Department \\
+string
+\end{tabular}
+
 \exercise{3.64}
+See text.
+
+\solution
+If $\alpha_{\textrm{Arrow}}(a)=d$, then we must have $\alpha_{\textrm{Arrow}}(b)=e$, $\alpha_{\textrm{Vertex}}(1)=4$, and $\alpha_{\textrm{Vertex}}(2)=\alpha_{\textrm{Vertex}}(3)=5$.
+
+\exercise{3.67}
+Discussed in person.
+
+\exercise{3.73}
+\begin{enumerate}
+	\item Given a morphism $f:X\to Y$ (in $\Set$), what morphism should $-\times B:X\times B\to Y\times B$ return?
+	\item Given a morphism $f:X\to Y$, what morphism should $(-)^B:X^B\to Y^B$ return?
+	\item Consider the function $+:\N\times\N\to\N$ which sends $(a,b)\mapsto a+b$.  Currying $+$, we get a certain function $p:\N\to\N^\N$.  What is $p(3)$?
+\end{enumerate}
+
+\solution
+\begin{enumerate}
+	\item $-\times B$ should return the morphism $(f,\id_B)$.
+	\item $(-)^B$ should return the morphism (set function) that maps $g\in X^B$ to $g\fcmp f$.
+	\item $p(3)$ is function that sends $n\in\N$ to $n+3$.
+\end{enumerate}
+
+\exercise{3.76}
+Describe the functor $!:\mcC\to\textbf{1}$: where does it send each object and morphism?
 
 
+\exercise{3.78}
+See text.
+
+
+\exercise{3.81}
+Let $(P,\leq)$ be a preorder, $z\in P$ an element and $\mcP$ the corresponding category.  Show that $z$ is a terminal object in $\mcP$ iff it is a top element in $P$: that is, for all $c\in P$ we have $c\leq z$.
+
+
+\exercise{3.82}
+Name a terminal object in $\Cat$.
+
+
+\exercise{3.83}
+Find a category that doesn't have a terminal object.
+
+
+\exercise{3.88}
+Let $(P,\leq)$ be a preorder, let $x,y\in P$ be elements, and let $\mcP$ be the corresponding category.  Show that the product $x\times y$ in $\mcP$ agrees with their meet $x\land y$ in $P$.
+
+
+\exercise{3.90}
+\begin{enumerate}
+	\item What are the identity morphisms in a product category $\mcC\times\mcD$?
+	\item Why is composition in a product category associative?
+	\item What is the product category $\textbf{1}\times\textbf{2}$?
+	\item What is the product category $\mcP\times\mcQ$ when $P$ and $Q$ are preorders and $\mcP$ and $\mcQ$ the corresponding categories?
+\end{enumerate}
+
+
+\exercise{3.91}
+Check that a product $X\times Y$ is exactly the same as a terminal object in $\textbf{Cone}(X,Y)$.
+
+
+\exercise{3.97}
+Show that the limit formula in Theorem 3.95 works for products.
+
+
+\exercise{3.98}
+If $D:\textbf{1}\to\Set$ is a functor, what is the limit of $D$?
 
 
 
