@@ -238,26 +238,40 @@ Discussed in person.
 \exercise{3.76}
 Describe the functor $!:\mcC\to\textbf{1}$: where does it send each object and morphism?
 
+\solution
+$!$ sends every object to the unique object in $\textbf{1}$ and every morphism to the identity on that object.
 
 \exercise{3.78}
 See text.
 
+\solution
+\includegraphics[width=0.5\textwidth]{images/3-78.jpg}
 
 \exercise{3.81}
 Let $(P,\leq)$ be a preorder, $z\in P$ an element and $\mcP$ the corresponding category.  Show that $z$ is a terminal object in $\mcP$ iff it is a top element in $P$: that is, for all $c\in P$ we have $c\leq z$.
 
+\solution
+By definition, we know $z$ is a terminal object if for every $c\in P$ we have a unique morphism $c\to z$.  But as there is only at most one morphism between any two objects in a preorder, namely $\leq$, this implies that $c\leq z$ for all $c\in P$.
 
 \exercise{3.82}
 Name a terminal object in $\Cat$.
 
+\solution
+Any category with a single object and a single morphism (the identity on that object) is a terminal object in $\Cat$.  This is due to Exercise 3.76.
 
 \exercise{3.83}
 Find a category that doesn't have a terminal object.
 
+\solution
+The schema $\textbf{Gr}$ from before is a category without a terminal object.  Arrow cannot be terminal as there is nor morphism from Vertex to Arrow, and Vertex cannot be terminal as there are two distinct morphisms from Arrow to Vertex.
 
 \exercise{3.88}
 Let $(P,\leq)$ be a preorder, let $x,y\in P$ be elements, and let $\mcP$ be the corresponding category.  Show that the product $x\times y$ in $\mcP$ agrees with their meet $x\land y$ in $P$.
 
+\solution
+Note that for a preorder, we need only show that a morphism exists to have a unique morphism between objects as there can only be at most one.
+
+By definition, $x\land y \leq x,y$, which gives us the projection morphisms $p_x$ and $p_y$ in the definition of the product.  Also for any $c\in P$ where $c\leq x$ and $c\leq y$, we know that $c\leq x\land y$, giving us the unique morphism $\langle f,g\rangle$.  Hence the meet exactly corresponds to the product.
 
 \exercise{3.90}
 \begin{enumerate}
@@ -267,6 +281,13 @@ Let $(P,\leq)$ be a preorder, let $x,y\in P$ be elements, and let $\mcP$ be the 
 	\item What is the product category $\mcP\times\mcQ$ when $P$ and $Q$ are preorders and $\mcP$ and $\mcQ$ the corresponding categories?
 \end{enumerate}
 
+\solution
+\begin{enumerate}
+	\item The identity morphisms are just pairs of identities $(\id_c,\id_d)$ for $c\in\Ob(\mcC)$ and $d\in\Ob(\mcD)$.
+	\item Composition is associative simply because the underlying composition of morphisms in $\mcC$ and $\mcD$ is associative.
+	\item \includegraphics[width=0.5\textwidth]{images/3-90.jpg}
+	\item $\mcP\times\mcQ$ has underlying set $P\times Q$ and a morphism $(p_1,q_1)\to(p_2,q_2)$ whenever $p_1\leq p_2$ and $q_1\leq q_2$.
+\end{enumerate}
 
 \exercise{3.91}
 Check that a product $X\times Y$ is exactly the same as a terminal object in $\textbf{Cone}(X,Y)$.
