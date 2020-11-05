@@ -292,14 +292,28 @@ By definition, $x\land y \leq x,y$, which gives us the projection morphisms $p_x
 \exercise{3.91}
 Check that a product $X\times Y$ is exactly the same as a terminal object in $\textbf{Cone}(X,Y)$.
 
+\solution
+$X\times Y$ is terminal if for every object in $\textbf{Cone}(X,Y)$, consisting of $C\in\Ob(\mcC)$ with  maps $f$ and $g$ to $X$ and $Y$ respectively, there is a unique cone morphism from $C\to X\times Y$.  But we have such a morphism from the definition of the product, namely $\langle f,g\rangle$, so $X\times Y$ is terminal.
 
 \exercise{3.97}
 Show that the limit formula in Theorem 3.95 works for products.
 
+\solution
+The product is the limit when the indexing category is just two objects and no non-identity morphisms (i.e. no arrows).  So the definition given in Theorem 3.95 gives the entire cartesian product of two sets.
 
 \exercise{3.98}
 If $D:\textbf{1}\to\Set$ is a functor, what is the limit of $D$?
 
+\solution
+Theorem 3.95 says that a limit of $D$ is just the set $D(\dot)$ where $\dot$ is the sole object in $\textbf{1}$.  We will show that any set $Z$ with a bijective function to $D(\dot)$ called $z_{\dot}$ is a terminal object in the cone category and hence a limit of $D$, which is compatible with the answer given by Theorem 3.95.
+
+We show first that for any limit $(Z,z_{\dot})$, $|Z|\geq |D(\dot)|$.  To see this consider the cone $(D(\dot),id)$, as $(Z,z_{\dot})$ is a terminal object, there is a unique morphism $a:D(\dot)\to Z$, such that $id = a\fcmp z_{\dot}$.   As function application can only decrease the cardinality of a set we have $|\id(D(\dot)|= |(a\fcmp z_{\dot})(D(\dot)| \leq |Z|$. 
+
+Secondly we show that for any limit $(Z,z_{\dot})$, $|Z|\leq |D(\dot)|$.  To see this suppose $(Q,q_{\dot})$ is an object in the cone category such that $|Q|> |D(\dot)|$.  As a result we must have that $q_{\dot}$ maps two elements to the same value in $D(\dot)$.  We can see two morphisms from $(Q,q_{\dot})$ to itself, the identity and the morphism which flips these two elements. 
+
+Finally we show that for any $(Z,z_{\dot})$ which satisfies the properties above and any other object in the cone category $(C,c_{\dot})$, there exists a unique morphism from $(C,c_{\dot})$ to $(Z,z_{\dot})$.  
+
+%First, we observe that for there to exist a cone morphism $a$ from another cone $(C, c_{\dot})$ to $Z$ we must have $|C|\geq |Z|$.  This is because $c_{\dot}(C) = (a\fcmp z_{\dot})(C)$
 
 
 
