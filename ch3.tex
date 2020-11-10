@@ -313,5 +313,11 @@ Secondly we show that for any limit $(Z,z_{\dot})$, $|Z|\leq |D(\dot)|$.  To see
 
 Finally we show that for any $(Z,z_{\dot})$ which satisfies the properties above and any other object in the cone category $(C,c_{\dot})$, there exists a unique morphism from $(C,c_{\dot})$ to $(Z,z_{\dot})$.  Consider any morphism $a$, from $(C,c_{\dot})$ to $(Z,z_{\dot})$, we know by definition that $a\fcmp z_{\dot} = c_{\dot}$.  Thus as $z_{\dot}$ is invertible, we can also conclude $a = c_{\dot} \fcmp z_{\dot}^{-1}$, and it is uniquely defined by $(C,c_{\dot})$ and $(Z,z_{\dot})$.  We also note that for any $(C,c_{\dot})$ and $(Z,z_{\dot})$ this morphism exists, completing the proof.
 
+\exercise{3.101}
+Let $F:\mcC\to\mcD$ be a functor.  Define its opposite $F^{\opp}: \mcC^\opp\to\mcD^\opp$, i.e. how should it act on objects and morphisms?
 
+\solution
+$F^\opp$ should take an object $c$ in $\mcC^\opp$ (and hence also in $\mcC$) to $F(c)\in\Ob(\mcD^\opp)=\Ob(\mcD)$.
+
+Next, for a morphism $f^\opp$ in $\mcC^\opp$, $F^\opp$ should take $f^\opp$ to $F(f)^\opp$ which we know must be a morphism in $\mcD^\opp$.
 
